@@ -21,7 +21,14 @@ def getVersion():
 
 @app.route('/api/classifier', methods=['POST'])
 def classify():
-    pass
+    if request.json is not None:
+        text = str(request.json['text']).strip()
+        origin = str(request.json['origin']).strip()
+    else:
+        abort(400)
+
+    result = predictAll(text, origin)
+    return jsonify({'classification': result})
 
 
 if __name__ == '__main__':
