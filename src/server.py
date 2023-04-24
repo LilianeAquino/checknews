@@ -22,7 +22,7 @@ def getVersion():
 @app.route('/api/classifier', methods=['POST'])
 def classify():
     if request.json is not None:
-        text = str(request.json['text']).strip()
+        text = str(request.json['text']).strip() if request.json['text'] != '' else abort(400)
         origin = str(request.json['origin']).strip()
     else:
         abort(400)
