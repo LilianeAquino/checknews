@@ -7,8 +7,9 @@ PATH = 'src/model/'
 
 class Model():
     def load_model(self) -> Pipeline:
-        model = load(open(PATH+'classifier_model.sav', 'rb'))
-        return model
+        with open(PATH+'classifier_model.sav', 'rb') as model:
+            classifier_model = load(model)
+        return classifier_model
 
 
     def predict(self, text: str, origin: str) -> dict:

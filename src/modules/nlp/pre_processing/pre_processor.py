@@ -66,7 +66,7 @@ def removeHtml(text:str) -> str:
     """
     text = text.replace('<br/>', ' ')
     soup = BeautifulSoup(text,'html5lib')
-    text = soup.get_text(strip = True)    
+    text = soup.get_text(strip=False)    
     return text
 
 
