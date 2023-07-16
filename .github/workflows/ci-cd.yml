@@ -1,0 +1,35 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: python3 -m unittest discover ./src/ "test_*.py"
+        env:
+          DB_NAME: ${{ secrets.DB_NAME }}
+          URL_MONGO: ${{ secrets.URL_MONGO }}
+          COLLECTION_FAKE_NEWS_DETECTION: ${{ secrets.COLLECTION_FAKE_NEWS_DETECTION }}
+          COLLECTION_FAKE_NEWS_DETECTION_DETAILS: ${{ secrets.COLLECTION_FAKE_NEWS_DETECTION_DETAILS }}
+          COLLECTION: ${{ secrets.COLLECTION }}
+          COLLECTION_USERS: ${{ secrets.COLLECTION_USERS }}
+          COLLECTION_MODELS: ${{ secrets.COLLECTION_MODELS }}
+          COLLECTION_FEEDBACKS: ${{ secrets.COLLECTION_FEEDBACKS }}
+          COLLECTION_TICKETS: ${{ secrets.COLLECTION_TICKETS }}

@@ -1,12 +1,5 @@
-import sys
-sys.path.append('/home/liliane_aquino/Estudos/TCC - PUC/checknews_backend/src')
-
 import unittest
-import warnings
 from modules.nlp.pre_processing import pre_processor
-
-
-warnings.filterwarnings('ignore')
 
 
 class TestPreProcessor(unittest.TestCase):
@@ -71,4 +64,4 @@ class TestPreProcessor(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()     
+    unittest.main()
