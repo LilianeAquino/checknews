@@ -36,7 +36,7 @@ _Consulte a [documentação das regras do Flake8][flake8-url]._
 
 _Consulte a [documentação do MyPy][mypy-url]._
 
-<p>Para executar os testes, execute o projeto localmente e, em outro terminal, rode o seguinte comando:<p>
+<p>Para executar os testes, rode o seguinte comando:<p>
 
 ~~~Python
  python3.8 -m unittest discover ./src/ "test_*.py"
