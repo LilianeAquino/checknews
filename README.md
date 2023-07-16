@@ -36,6 +36,12 @@ _Consulte a [documentação das regras do Flake8][flake8-url]._
 
 _Consulte a [documentação do MyPy][mypy-url]._
 
+<p>Para executar os testes, execute o projeto localmente e, em outro terminal, rode o seguinte comando:<p>
+
+~~~Python
+ python3.8 -m unittest discover ./src/ "test_*.py"
+~~~
+
 [ambiente-url]: https://tutorial.djangogirls.org/pt/django_installation/
 [python-url]: https://www.python.org/downloads/release/python-3810/
 [python-image]: https://img.shields.io/badge/python-v3.8.10-blue

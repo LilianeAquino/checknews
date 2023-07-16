@@ -48,5 +48,5 @@ def classify():
 
 
 if __name__ == '__main__':
-    port = int(os.getenv('PORT_CLASSIFIER', default=8002))
+    port = int(os.getenv('PORT_CLASSIFIER', default=9001))
     app.run(host='0.0.0.0', port=port, debug=True)

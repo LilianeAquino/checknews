@@ -1,11 +1,6 @@
-import sys
-sys.path.append('/home/liliane_aquino/Estudos/TCC - PUC/checknews_backend/src')
-
 import unittest
 import json
 from server import app
-import warnings
-warnings.filterwarnings('ignore')
 
 
 class TestServer(unittest.TestCase):
@@ -45,8 +40,8 @@ class TestServer(unittest.TestCase):
             'origin': 'https://twitter.com/fatooufake/status/1644419772392566817?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet'
             }
         response = self.app.post('/api/classifier', json=data)
-        self.assertEqual(json.loads(response.data.decode('utf-8')), {"classification":{"confianca":0.9438516671807561,"label":"fake"}})
+        self.assertEqual(json.loads(response.data.decode('utf-8')), {"classification":{"confianca": 0.9395386735686593, "label": "Notícia falsa"}})
 
 
 if __name__ == '__main__':
-    unittest.main()     
+    unittest.main()
