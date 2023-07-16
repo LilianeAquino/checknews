@@ -23,7 +23,7 @@ app = Flask(__name__)
 @app.route('/api/health', methods=['GET'])
 def getVersion():
     return jsonify({
-      'version': '1.0',
+      'version': 'v1.0.0',
       'projeto': 'Checknews: Plataforma web para detecção de fake news',
       'python': platform.python_version(),
       'sklearn': sklearn.__version__
@@ -42,7 +42,6 @@ def classify():
     else:
         collection.insert_one(getLogs({'text': None, 'origin': None, 'classification': {}, 'success': False, 'error': 'Invalid request - problems with parameters passed via post'}))
         abort(400)
-
     result = predictAll(text, origin)
     return jsonify({'classification': result})
 

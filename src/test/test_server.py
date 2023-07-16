@@ -8,6 +8,7 @@ class TestServer(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
 
+
     @patch('modules.ml.classifier.predictAll')
     def testReturnClassification(self, mock_predictAll):
         mock_predictAll.return_value = {
@@ -30,6 +31,7 @@ class TestServer(unittest.TestCase):
             {"classification": {"confianca": 0.9395386735686593, "label": "Notícia falsa"}}
         )
 
+
     @patch('modules.ml.classifier.predictAll')
     def testReturn200(self, mock_predictAll):
         mock_predictAll.return_value = {"classification": {"confianca": 0.9, "label": "fake"}}
@@ -42,6 +44,7 @@ class TestServer(unittest.TestCase):
         response = self.app.post('/api/classifier', json=data)
         self.assertEqual(response.status_code, 200)
 
+
     @patch('modules.ml.classifier.predictAll')
     def testReturn200WithoutOrigin(self, mock_predictAll):
         mock_predictAll.return_value = {"classification": {"confianca": 0.9, "label": "fake"}}
@@ -53,6 +56,7 @@ class TestServer(unittest.TestCase):
 
         response = self.app.post('/api/classifier', json=data)
         self.assertEqual(response.status_code, 200)
+
 
     @patch('modules.ml.classifier.predictAll')
     def testReturn400WithoutText(self, mock_predictAll):
